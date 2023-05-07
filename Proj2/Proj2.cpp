@@ -17,11 +17,11 @@ int main() {
     //excB1();
     //excB2();
     //excC1();
-    //excC2();
+    excC2();
     //excD();
     //excE1();
     //excE2();
-    excE3();
+    //excE3();
     return 0;
 }
 void excB1() {
@@ -49,9 +49,10 @@ void excB1() {
     double jakobi_time = jakobi_stop - jakobi_start;
     printf("\n\tJakobi\niters =%d, secs =%.3lf\n", iters, jakobi_time);
     for (int i = 0; i < normy.GetSize(); i++) {
-        printf("%.5lf\n", normy[i]);
+        printf("%10e,\n", normy[i]);
     }
-    //r.Print();
+   // printf("\n");
+   // r.Print();
 }
 void excB2() {
     ///Gauss–Seidl
@@ -70,12 +71,13 @@ void excB2() {
         norm = (A * r - b).norm();
         iters++;
         normy.pushBack(norm);
+        printf("\n");
     }
     double gs_stop = dtime();
     double gs_time = gs_stop - gs_start;
     printf("\n\tGauss_Seidl\niters =%d, secs =%.3lf\n", iters, gs_time);
     for (int i = 0; i < normy.GetSize(); i++) {
-        printf("%.5lf\n", normy[i]);
+        printf("%10e,\n", normy[i]);
     }
 }
 void excC1() {
@@ -88,8 +90,8 @@ void excC1() {
     double norm = (A * r - b).norm();
     Matrix D_inv = A.D().Inv();
     Matrix DLU = (-D_inv) * (A.L() + A.U());
-    while (norm > 1.0e-9) {
-        if (iters > 1000)
+    while (norm > 1.0e-9 ) {
+        if (iters > 1000 || *(long long*)&norm == 0x7FF0000000000000)
             break;
         r = DLU * r + (D_inv * b);
         norm = (A * r - b).norm();
@@ -97,7 +99,7 @@ void excC1() {
         normy.pushBack(norm);
     }
     for (int i = 0; i < normy.GetSize(); i++) {
-        printf("%.5lf\n", normy[i]);
+        printf("%10e,\n", normy[i]);
     }  
 }
 void excC2() {
@@ -112,7 +114,7 @@ void excC2() {
     Matrix DL = A.D() + A.L();
     Matrix mDL = -DL;    
     while (norm > 1.0e-9) {
-        if (iters > 1000)
+        if (iters > 1000 || *(long long*)&norm == 0x7FF0000000000000)
             break;
         r = (mDL >> (U * r)) + (DL >> b);
         norm = (A * r - b).norm();
@@ -121,7 +123,7 @@ void excC2() {
     }
     
     for (int i = 0; i < normy.GetSize(); i++) {
-        printf("%.5lf\n", normy[i]);
+        printf("%10e,\n", normy[i]);
     }
 }
 void excD() {
@@ -133,6 +135,7 @@ void excD() {
     Matrix x = U << z;
     double res = (A * x - b).norm();
     printf("\t%10e\n", res);
+    //x.Print();
 }
 void excE1() {
     int N[10] = { 100, 200, 300, 500, 700, 1000, 2000, 3000, 4000, 5000 };
@@ -183,7 +186,7 @@ void excE2() {
 void excE3() {
     int N[10] = { 100, 200, 300, 500, 700, 1000, 2000, 3000, 4000, 5000 };
     for (int i = 0; i < 10; i++) {
-        Matrix A = CreateMatrix(N[i], 3, -1, -1);
+        Matrix A = CreateMatrix(N[i], 11, -1, -1);
         Matrix b = CreateVector(N[i], 8);
         Matrix L, U;
         double gs_start = dtime();
@@ -192,6 +195,6 @@ void excE3() {
         Matrix x = U << z;   
         double gs_stop = dtime();
         double gs_time = gs_stop - gs_start;
-        printf("%.4lf\n", gs_time);
+        printf("%.4lf,\n", gs_time);
     }
 }
