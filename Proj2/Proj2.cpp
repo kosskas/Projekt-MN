@@ -14,10 +14,10 @@ void excE1();
 void excE2();
 void excE3();
 int main() {
-    //excB1();
-    //excB2();
+    excB1();
+    excB2();
     //excC1();
-    excC2();
+    //excC2();
     //excD();
     //excE1();
     //excE2();

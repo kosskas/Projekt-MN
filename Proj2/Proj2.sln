@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Proj2", "Proj2.vcxproj", "{0B891241-B160-4E3B-9E11-B5679A18045E}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Proj2_Wykresy", "..\Proj2_Wykresy\Proj2_Wykresy.pyproj", "{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,12 +25,6 @@ Global
 		{0B891241-B160-4E3B-9E11-B5679A18045E}.Release|x64.Build.0 = Release|x64
 		{0B891241-B160-4E3B-9E11-B5679A18045E}.Release|x86.ActiveCfg = Release|Win32
 		{0B891241-B160-4E3B-9E11-B5679A18045E}.Release|x86.Build.0 = Release|Win32
-		{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}.Release|x64.ActiveCfg = Release|Any CPU
-		{0A61D6C0-EB5D-409A-B45C-CEB8923143CC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
