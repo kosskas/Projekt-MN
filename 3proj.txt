@@ -1,7 +1,0 @@
-przeanalzować 3 profile i do każdego 4 wykresy
-dowieźć wnioski dot. interpolacji
-wstęp pół strony, rezultaty, cechy interpolacji, podsumowanie
-
-4 wykresy:
-zmieniana liczba wężów interpolacji 20, 40
-dwie interpolacje, 
